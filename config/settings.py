@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # my apps
     "esabs",
+    "kteb",
 
     
 ]
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath("templates"))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,11 +116,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
-
+STATIC_URL = '/static/'
+STATICFIELDS_DIRS = [str(BASE_DIR.joinpath("static"))]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
  
 # castom models my 
 
-PATH_USER_MODEL = "esabs.CustomUser"
+AUTH_USER_MODEL = "esabs.CustomUser"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
