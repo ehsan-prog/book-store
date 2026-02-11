@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("esabs/",include("django.contrib.auth.urls")),
     path("esabs/",include('esabs.urls')),
-    path("",include("kteb.urls")),
+    path("",include("keb.urls")),
 ]

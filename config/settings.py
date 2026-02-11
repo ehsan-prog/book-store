@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # my apps
     "esabs",
-    "kteb",
+    "keb",
+    "crispy_bootstrap5",
+    "crispy_forms",
 
-    
 ]
 
 MIDDLEWARE = [
@@ -127,3 +127,6 @@ AUTH_USER_MODEL = "esabs.CustomUser"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = "home"

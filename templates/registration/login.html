@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block head %}
+<link rel="stylesheet" href="{%static 'css/login.css' %}">
+{% endblock head %}
 {% block title %}ورود به سایت{% endblock title %}
 {% block body %}
 <div class="d-flex justify-content-center mt-5" dir="rtl">
@@ -6,10 +11,10 @@
         <form method="post">
             {% csrf_token %}
             <h1 class="text-center">ورود</h1>
-           {{form}}
+           {{form|crispy}}
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mt-2">
-                    <a class="text-decoration-none" href="#">فراموشی رمز عبور</a>
+                    <a class="text-decoration-none" href="{%url 'password_reset' %}">فراموشی رمز عبور</a>
                 </div>
             </div>
             <button type="submit" class="btn btn-success mt-3 w-100">ورود</button>
@@ -18,7 +23,7 @@
                     یا
                   </span>
             </div>
-            <a href="" class="btn btn-primary mt-2 mb-3 w-100">ثبت نام</a>
+            <a href="{%url 'signup' %}" class="btn btn-primary mt-2 mb-3 w-100">ثبت نام</a>
         </form>
     </div>
 
