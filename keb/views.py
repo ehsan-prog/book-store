@@ -1,4 +1,8 @@
 from django.views import generic
-from django.shortcuts import render
-def Home(re):
-    return render(re,"home.html")
+
+from .models import Kteb
+
+class Home(generic.ListView):
+    model = Kteb
+    template_name = "home.html"
+    context_object_name = 'kteb'
