@@ -9,11 +9,9 @@
             <div class="row g-0 h-100" dir="rtl">
                 <div class="col-md-4">
                     {% if book.cover %}
-                    <img src="{{book.cover.url}}"
-                         class="img-fluid rounded-start" alt="...">
+                    <img src="{{book.cover.url}}" class="img-fluid rounded-start" alt="...">
                     {% else %}
-                    <img src="{%static 'icons/book.png' %}"
-                         class="img-fluid rounded-start" alt="...">
+                    <img src="{%static 'icons/book.png' %}" class="img-fluid rounded-start" alt="...">
                     {% endif %}
                 </div>
                 <div class="col-md-8 h-100">
@@ -22,6 +20,8 @@
                             <h3 class="card-title"><strong>{{book.title}} </strong></h3>
                             <p class="card-text pt-3">{{book.touzihat|truncatewords:1}} </p>
                             <p class="text-muted">نویسنده : {{book.author}}</p>
+                            <a href="{%url 'detail_kteb' book.id %}" class="btn btn-primary mt-2 mb-3 w-100">مشخصات کتاب</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,19 @@
         </div>
         
         {% endfor %}
-       
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+    
+    <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a></li>
+    {% endif %}
+    <li class="page-item"><a class="page-link" href="#">{{page_obj.number}}</a></li>
+    {% if page_obj.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a></li>
+    
+    {% endif %}
+  </ul>
+</nav>
     </div>
 </div>
 {% endblock body %}
