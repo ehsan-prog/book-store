@@ -1,28 +1,57 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 {% load static %}
-{% load crispy_forms_tags %}
-{% block head %}
-<link rel="stylesheet" href="{%static 'css/login.css' %}">
-{% endblock head %}
-{% block title %}ثبت نام{% endblock title %}
-{% block body %}
-<div class="d-flex justify-content-center mt-5" dir="rtl">
-    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-5 col-xs-6 bg-white m-3 m-sm-5 border rounded px-4 pt-4 pb-3 shadow">
-        <form method="post">
-            {% csrf_token %}
-            <h1 class="text-center">ثبت نام</h1>
-           {{form|crispy}}
-            
-            <button type="submit" class="btn btn-primary mt-3 w-100">ثبت نام</button>
-            <div class="line-with-middle-sep">
-                  <span>
-                    یا
-                  </span>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ثبت نام</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+     
+     <link rel="stylesheet" href="{%static 'css/signup.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h1>ایجاد حساب</h1>
+            <p>برای ساخت حساب کاربری جدید<br>فرم مقابل را تکمیل نمایید.</p>
+            <br>
+            <div class="links">
+                    <span>اگر لازم به ثبت نام ندارید؟</span>
+                    <a href="{%url 'home' %}">خانه</a>
+                </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-box">
+                <h2>ثبت نام</h2>
+                <form method="post" >
+                    {% csrf_token %}
+                    <div class="input-group">
+                        {{form.username}}
+                        <label>نام کاربری</label>
+                    </div>
+                    <div class="input-group">
+                        {{form.email}}
+                        <label>آدرس ایمیل</label>
+                    </div>
+                    <div class="input-group">
+                        {{form.password1}}
+                        <label>رمز عبور</label>
+                    </div>
+                    <div class="input-group">
+                        {{form.password2}}
+                        <label>تایید رمز عبور</label>
+                    </div>
+                    <button type="submit" class="btn">ثبت نام</button>
+                </form>
+                <div class="links">
+                    <span>حساب دارید؟</span>
+                    <a href="{%url 'login' %}">ورود</a>
+                </div>
             </div>
-            <a href="{%url 'login' %}" class="btn btn-success mt-2 mb-3 w-100">ورود</a>
-        </form>
+        </div>
     </div>
 
-</div>
-
-{% endblock body %}
+</body>
+</html>  

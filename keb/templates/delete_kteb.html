@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block head %}
@@ -20,4 +20,54 @@
 
 </div>
 
-{% endblock body %}
+{% endblock body %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    {% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حدف کتاب "{{kteb.title}}"</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{%static 'css/login1.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="welcome-section">
+            
+            <h1>حدف کتاب "{{kteb.title}}"</h1>
+            <p>چرا با حذف کتاب"{{kteb.title}}" برخود شدی؟
+                <br>اگه کتاب را حذف کنید تازه این کتاب را<br>نمی توان برگرداند</p>
+            <br>
+            <div class="links">
+                    <span>شاید از حذف کتاب پشیمان شدی؟</span>
+                    <a href="{%url 'home' %}">خانه </a>
+                </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-box">
+            
+                
+                <h2>حذف کتاب "{{kteb.title}}"</h2>
+                <form  method="post" >
+                    {% csrf_token %}
+                    <div class="links">
+                    <span>آیا از حذف کتاب "{{kteb.title}}" مطمئنی؟</span>
+                    
+                </div>
+                   <br>
+                    <button type="submit" class="btn">حذف</button>
+                </form>
+                <div class="links">
+                    <span>از حذف کتاب منصرف شدی؟ </span>
+                    <a href="{%url 'home' %}">خانه</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
