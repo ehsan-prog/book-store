@@ -25,7 +25,7 @@
                         <h1>{{kteb.title}} </h1>
                         <h5 class="small my-1"><span class="text-muted">نویسنده: </span>{{kteb.author}} </h5>
                         <h5 class="small my-1"><span class="text-muted">مترجم: </span>الهام خرسندی</h5>
-                        <h5 class="small my-1"><span class="text-muted">انتشارات: </span>هوزمزد</h5>
+                        <h5 class="small my-1"><span class="text-muted">انتشار کننده: </span>{{kteb.user.username}}</h5>
                     </div>
                     <div class="col-xs-12 col-md-3 d-flex flex-column">
                         <h3 class="align-self-center pt-2 text-muted align-self-md-end">
@@ -40,8 +40,10 @@
                     {{kteb.touzihat|linebreaks}}
                 </div>
             </div>
-<a href="{%url 'update_kteb' kteb.id %}" class="btn btn-warning">ویرایش</a>
-<a href="{%url 'delete_kteb' kteb.id %}" class="btn btn-danger">حذف</a>
+            {% if kteb.user == user %}
+            <a href="{%url 'update_kteb' kteb.id %}" class="btn btn-warning">ویرایش</a>
+            <a href="{%url 'delete_kteb' kteb.id %}" class="btn btn-danger">حذف</a>
+            {% endif %}
 <a href="{%url 'home' %}" class="btn btn-primary mt-2 mb-3 w-100">نمایش همه کتاب ها</a>
             <div class="d-flex justify-content-center">
                 <div class="card shadow my-3 p-5 w-sm-75 w-100">

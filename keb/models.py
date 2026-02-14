@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 
 
 class Kteb(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=50)
     touzihat = models.TextField()

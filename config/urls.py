@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("esabs/",include("django.contrib.auth.urls")),
-    path("esabs/",include('esabs.urls')),
+    path("accounts/",include("django.contrib.auth.urls")),
+    path("accounts/",include('esabs.urls')),
     path("",include("keb.urls")),
 ] + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
